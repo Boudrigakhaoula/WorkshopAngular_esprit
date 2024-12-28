@@ -1,0 +1,18 @@
+<div class="list-products">
+    <h2>Liste des Produits</h2>
+    <p>Ce composant affichera la liste des produits plus tard.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4" *ngFor="let product of products">
+        <app-card 
+            [id]="product.id" 
+            [image]="product.image" 
+            [title]="product.name" 
+            [description]="product.description" 
+            
+       
+            (addToShortListEvent)="addToShortList(product.id)">
+        </app-card>
+    </div>
+</div>

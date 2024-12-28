@@ -1,0 +1,51 @@
+<!-- <div class="container">
+    <div class="mb-3">
+        <input type="text" [(ngModel)]="titre" placeholder="Rechercher par titre" class="form-control">
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin-bottom: 20px;" *ngFor="let category of categories | filter: titre">
+            <img [src]="category.image" [alt]="category.title" class="img-fluid h-50 w-75">
+            <h3>{{ category.title | uppercase }}</h3>
+            <button *ngIf="category.available" class="btn btn-primary" [routerLink]="['/products-category', category.id]">
+                Voir produits
+            </button>
+            <button *ngIf="category.available" class="btn btn-secondary" [routerLink]="['/products-category-q-p']" [queryParams]="{ id: category.id }">
+                Voir produits 2
+            </button>
+            <button *ngIf="category.available" class="btn btn-info" (click)="selectedCategory = category">
+                Voir détails
+            </button>
+            <p *ngIf="!category.available" class="text-danger">Catégorie non disponible</p>
+        </div>
+    </div>
+ 
+    <app-details-category [description]="selectedCategory?.description ?? 'Aucune description disponible'"></app-details-category>
+</div> -->
+
+
+<div class="container">
+    <div class="mb-3">
+        <input type="text" [(ngModel)]="titre" placeholder="Rechercher par titre" class="form-control">
+    </div>
+    <button class="btn btn-success mb-3" [routerLink]="['/add-category']">Add category</button>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let category of categories | filter: titre">
+           
+            <app-card 
+            [id]="category.id" 
+            [image]="category.image" 
+            [title]="category.title" 
+            [description]="category.description" 
+            [available]="category.available" 
+            (addToShortListEvent)="addToShortList(category.id)">
+          </app-card>
+          <button class="btn btn-warning" [routerLink]="['/add-category', category.id]">Update</button> <!-- Bouton Modifier -->
+          <button class="btn btn-danger" (click)="deleteCategory(category)">Delete</button>
+        </div>
+
+    </div>
+   
+    <app-details-category [description]="selectedCategory?.description ?? 'Aucune description disponible'"></app-details-category>
+</div>
+
+<app-list-products></app-list-products>

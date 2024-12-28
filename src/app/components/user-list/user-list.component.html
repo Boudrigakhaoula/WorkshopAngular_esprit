@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Liste des Utilisateurs</h2>
+  <div *ngFor="let user of users" class="user-card">
+    <img [src]="user.picture" alt="{{ user.firstName }} {{ user.lastName }}" />
+    <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+    <p>Email: {{ user.email }}</p>
+    <p>Profession: {{ user.profession }}</p>
+  </div>
+  
+  <!-- Ajout du bouton Calculer -->
+  <button class="btn btn-primary" (click)="calculateUsers('accountCategory', 'Customer')">Calculer</button>
+</div>

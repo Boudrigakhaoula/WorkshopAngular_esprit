@@ -1,0 +1,9 @@
+<div class="card">
+    <img [src]="image" class="card-img-top" alt="{{ title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ title }}</h5>
+      <p class="card-text">{{ description }}</p>
+      <button class="btn btn-primary" *ngIf="available">{{ btnText }}</button>
+      <button class="btn btn-success" (click)="addToShortList()">Add to shortlist</button>
+    </div>
+  </div>

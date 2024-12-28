@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-md-4" *ngFor="let product of filteredProducts | filterByCategoryId: categoryId">
+ 
+    <img [src]="product.image" alt="{{ product.name }}" class="img-fluid">
+    <h4>{{ product.name }}</h4>
+    <p>Prix: {{ product.price }} dt</p>
+  </div>
+</div>

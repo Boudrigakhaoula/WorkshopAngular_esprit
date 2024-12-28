@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>Ajouter une catégorie</h2>
+  <form (ngSubmit)="addCategory()">
+    <div class="mb-3">
+        <label for="title" class="form-label">Id:</label>
+        <input type="text" id="title" class="form-control" [(ngModel)]="newCategory.id" name="id" required>
+      </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Titre:</label>
+      <input type="text" id="title" class="form-control" [(ngModel)]="newCategory.title" name="title" required>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Image URL:</label>
+      <input type="text" id="image" class="form-control" [(ngModel)]="newCategory.image" name="image" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <input type="text" id="description" class="form-control" [(ngModel)]="newCategory.description" name="description" required>
+    </div>
+    <div class="mb-3">
+      <label for="available" class="form-label">Disponible:</label>
+      <input type="checkbox" id="available" [(ngModel)]="newCategory.available" name="available">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
